@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bmi_calculator/result_page.dart';
 import 'package:flutter_bmi_calculator/widgets/custom_widget.dart';
 import 'package:flutter_bmi_calculator/widgets/gender_widget.dart';
 import 'package:flutter_bmi_calculator/widgets/slaider_widget.dart';
@@ -43,11 +44,9 @@ class _InputScreenState extends State<InputScreen> {
                 CustomWidget(
                   onTap: (() {
                     setState(() {
-                      // _maleButton = !_maleButton;
                       _gender = Gender.Male;
                     });
                   }),
-                  // tus: _maleButton ? _activeColor : _inActiveColor,
                   tus: _gender == Gender.Male ? _activeColor : _inActiveColor,
                   widget: const GenderWidget(
                       icons: FontAwesomeIcons.person, text: 'male'),
@@ -55,11 +54,9 @@ class _InputScreenState extends State<InputScreen> {
                 CustomWidget(
                   onTap: (() {
                     setState(() {
-                      // _femaleButton = !_femaleButton;
                       _gender = Gender.Female;
                     });
                   }),
-                  // tus: _femaleButton ? _activeColor : _inActiveColor,
                   tus: _gender == Gender.Female ? _activeColor : _inActiveColor,
                   widget: const GenderWidget(
                       icons: FontAwesomeIcons.personDress, text: 'female'),
@@ -114,8 +111,27 @@ class _InputScreenState extends State<InputScreen> {
                 ),
               ],
             ),
-          )
+          ),
         ],
+      ),
+      bottomNavigationBar: MaterialButton(
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: ((context) => const ResultPage())));
+        },
+        child: Container(
+          height: 70.0,
+          color: const Color(0xffF50D56),
+          child: const Center(
+            child: Text(
+              'CALCULATE',
+              style: TextStyle(
+                  fontSize: 30.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
       ),
     );
   }
