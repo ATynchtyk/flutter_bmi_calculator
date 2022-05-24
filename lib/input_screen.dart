@@ -6,6 +6,8 @@ import 'package:flutter_bmi_calculator/widgets/slaider_widget.dart';
 import 'package:flutter_bmi_calculator/widgets/weight_age.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'widgets/button_calculate.dart';
+
 enum Gender {
   Male,
   Female,
@@ -114,24 +116,16 @@ class _InputScreenState extends State<InputScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: MaterialButton(
+      bottomNavigationBar: ButtonCalculate(
+        soz: 'CALCULATE',
         onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: ((context) => const ResultPage())));
-        },
-        child: Container(
-          height: 70.0,
-          color: const Color(0xffF50D56),
-          child: const Center(
-            child: Text(
-              'CALCULATE',
-              style: TextStyle(
-                  fontSize: 30.0,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: ((context) => const ResultPage()),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }
