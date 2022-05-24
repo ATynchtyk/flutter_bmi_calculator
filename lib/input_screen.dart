@@ -122,7 +122,7 @@ class _InputScreenState extends State<InputScreen> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: ((context) => const ResultPage()),
+              builder: ((context) =>  ResultPage(height: _slaider,weight: _weight.toDouble(),)),
             ),
           );
         },
